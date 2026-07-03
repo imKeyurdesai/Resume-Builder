@@ -240,9 +240,9 @@ const UserDataCollect = () => {
   };
 
   //handles logic of localStorage
-  const handleLocalStore = () => {
+  useCallback(() => {
     localStorage.setItem("userData", JSON.stringify(themeData));
-  };
+  }, [themeData]);
 
   useEffect(() => {
     setThemeData({
@@ -262,10 +262,6 @@ const UserDataCollect = () => {
     workData,
     awardData,
   ]);
-
-  useEffect(() => {
-    handleLocalStore();
-  }, [themeData]);
 
   return (
     <>
