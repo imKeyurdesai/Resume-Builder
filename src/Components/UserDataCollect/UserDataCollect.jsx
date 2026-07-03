@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./userCollectData.css";
 import { IoMdCloudUpload } from "react-icons/io";
 import {
@@ -239,11 +239,6 @@ const UserDataCollect = () => {
     setAwardData({ ...awardData, [name]: value });
   };
 
-  //handles logic of localStorage
-  useCallback(() => {
-    localStorage.setItem("userData", JSON.stringify(themeData));
-  }, [themeData]);
-
   useEffect(() => {
     setThemeData({
       ...themeData,
@@ -262,6 +257,11 @@ const UserDataCollect = () => {
     workData,
     awardData,
   ]);
+
+  //handles logic of localStorage
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(themeData));
+  }, [themeData]);
 
   return (
     <>
